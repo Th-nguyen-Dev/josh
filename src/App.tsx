@@ -9,6 +9,8 @@ import Iridescence from './animation/Iridescence/Iridescence'
 import GlassSurface from './animations/GlassSurface/GlassSurface'
 import React from 'react'
 
+// Move logos array outside component to avoid recreation on every render
+const logos = [logo_1, logo_2, logo_3];
 
 function App() {
 
@@ -19,7 +21,8 @@ function App() {
     if (!api) return;
     
     const updateCurrentLogo = () => {
-      setCurrentLogo(`/logo_${api.selectedScrollSnap() + 1}.svg`);
+      const selectedIndex = api.selectedScrollSnap();
+      setCurrentLogo(logos[selectedIndex]);
     };
     
     // Set initial logo
