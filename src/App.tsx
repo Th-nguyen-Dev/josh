@@ -1,56 +1,13 @@
-import { use, useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import logo_1 from '/logo_1.svg'
 import logo_2 from '/logo_2.svg'
 import logo_3 from '/logo_3.svg'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious,  type CarouselApi } from './components/ui/carousel'
 import { Card, CardContent } from './components/ui/card'
 
-import MetallicPaint, { parseLogoImage } from './animation/MetallicPaint/MetallicPaint'
 import Iridescence from './animation/Iridescence/Iridescence'
 import GlassSurface from './animations/GlassSurface/GlassSurface'
 import React from 'react'
-import { Button } from './components/ui/button'
-
-
-const MetallicLogo_1 = () => {
-  const [imageData, setImageData] = useState<ImageData | null>(null);
-
-  useEffect(() => {
-    async function loadDefaultImage() {
-      try {
-        const response = await fetch(logo_1);
-        const blob = await response.blob();
-        const file = new File([blob], "default.png", { type: blob.type });
-
-        const parsedData = await parseLogoImage(file);
-        setImageData(parsedData?.imageData ?? null);
-      } catch (err) {
-        console.error("Error loading default image:", err);
-      }
-    }
-
-    loadDefaultImage();
-  }, []);
-
-  return (
-    <div style={{ width: '100%', height: '100vh' }}>
-      <MetallicPaint 
-        imageData={imageData ?? new ImageData(1, 1)} 
-        params={{ 
-          edge: 2, 
-          patternBlur: 0.005, 
-          patternScale: 2, 
-          refraction: 0.015, 
-          speed: 0.3, 
-          liquid: 0.07 
-        }} 
-      />
-    </div>
-  );
-};
-
 
 
 function App() {
