@@ -56,7 +56,6 @@ function App() {
             </div>
             <div className='flex items-center gap-4 text-lg font-bold text-black'>
               <h2>Home</h2>
-              <h2>About</h2>
               <h2>Contact</h2>
             </div>
           </div>
